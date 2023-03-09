@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>practice-first-var</title>
+        <link href="./css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <main class="main">
+                <div class="quiz hidden">
+                    <div class="quiz__header">
+                        <div class="quiz__progress"></div>
+                    </div>
+                    <div class="quiz__content">
+                        <h3 class="quiz__title"></h3>
+                        <ul class="quiz__list"></ul>
+                    </div>
+                    <div class="quiz__footer">
+                        <button class="quiz__next-btn">Next</button>
+                    </div>
+                </div>
+                <div class="result hidden">
+                    <div class="result__title">
+                        The test is fully completed!
+                    </div>
+                    <div class="result__text"></div>
+                    <div class="result__btn">
+                        <a class="result__restart" href="/">Restart</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="./script/questions.js"></script>
+        <script src="./script/script.js"></script>
+    </body>
+</html>
