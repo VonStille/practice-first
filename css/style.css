@@ -21,30 +21,20 @@ body {
 }
 
 .quiz__header {
-    padding: 20px;
+    padding: 20px 30px 10px;
     font-size: 20px;
     font-weight: 600;
 }
 
-.quiz__progress {
-    display: flex;
-    align-items: center;
-}
-
 .quiz__content {
-    padding: 30px 30px 20px;
-    flex: 1 0 auto;
+    padding: 30px 30px 10px;
 }
 
 .quiz__title {
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 650;
 }
 
-.quiz__subtitle {
-    font-size: 25px;
-    font-weight: 600;
-}
 
 .quiz__list {
     display: flex;
@@ -90,39 +80,41 @@ body {
 
 .quiz__btn {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding: 5px 30px 15px;
 }
 
-.quiz__next-btn {
 
+.quiz__next-btn {
+    min-width: 100px;
     height: 40px;
-    padding: 0 13px;
     font-size: 18px;
     font-weight: 400;
-    color: #fff;
     border-radius: 5px;
+    color: rgb(202, 199, 199);
+    background: aliceblue;
+    border: 1px solid aliceblue;
+}
+
+.quiz__next-btn.active {
+    color: #fff;
     background: #007bff;
     border: 1px solid #007bff;
 }
 
 .result {
     max-width: 450px;
+    min-height: 450px;
     width: 100%;
     background-color: white;
     border-radius: 10px;
     padding: 20px 10px;
-}
-
-.result__img {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.result__img img {
-    max-width: 200px;
-    width: 100%;
-}
+
 
 .result__title {
     font-size: 22px;
@@ -160,4 +152,41 @@ body {
 .result__restart:hover {
     color: #fff;
     background: #007bff;
+}
+
+@media screen and (max-width:450px) {
+
+    .quiz__header {
+        font-size: 15px;
+        padding: 15px 25px 5px;
+    }
+
+    .quiz__content {
+        padding: 15px 25px 5px;
+    }
+
+    .quiz__title {
+        font-size: 18px;
+    }
+
+    .quiz__choice {
+        min-height: 0;
+    }
+
+    .guiz__next-btn {
+        min-width: 80px;
+        height: 30px;
+    }
+
+    .result {
+        min-height: 250px;
+    }
+
+    .result__title {
+        font-size: 18px;
+    }
+
+    .result__text {
+        font-size: 16px;
+    }
 }

@@ -19,7 +19,7 @@ function showQuestion(index) {
     title.innerHTML = `${questions[index].question}`;
     list.innerHTML = '';
     if (questions[index].answers.length > 1) {
-        const text = `<p clacc="quiz__subtitle">Choose multiple answers</p>`
+        const text = ` (Choose multiple answers)`
         title.insertAdjacentHTML("beforeend", text)
     }
     questions[index].choices.forEach(item => {
@@ -31,7 +31,7 @@ function showQuestion(index) {
     choices.forEach(item => item.setAttribute("onclick", "handleChoice(this)"));
     progress.innerHTML = `QUESTION ${index+1} / ${questions.length}`;
 
-    btnNext.classList.add('hidden');
+    btnNext.classList.remove('active');
 };
 
 function handleChoice(answer) {
@@ -50,13 +50,13 @@ function handleChoice(answer) {
         });
         userAnswersCount = 0;
         choices.forEach(item => item.classList.add("disabled"));
-        btnNext.classList.remove('hidden');
+        btnNext.classList.add('active');
     }
     if (userAnswersCount == correctAnswers.length) {
         choices.forEach(item => item.classList.add("disabled"));
         userAnswersCount = 0;
         userScore += 1;
-        btnNext.classList.remove('hidden');
+        btnNext.classList.add('active');
     }
 }
 
