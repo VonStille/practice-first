@@ -1,6 +1,6 @@
 let questions = [{
         question: "How many planets are in the solar system ?",
-        answer: "8",
+        answers: ["8", "10", "11"],
         choices: [
             "8",
             "9",
@@ -10,7 +10,7 @@ let questions = [{
     },
     {
         question: "What is the freezing point of water?",
-        answer: "0",
+        answers: ["0"],
         choices: [
             "0",
             "-5",
@@ -20,7 +20,7 @@ let questions = [{
     },
     {
         question: "What is the longest river in the world? (Nile, Amazon, Yangtze)",
-        answer: "Nile",
+        answers: ["Nile"],
         choices: [
             "Nile",
             "Amazon",
@@ -30,7 +30,7 @@ let questions = [{
     },
     {
         question: "How many chromosomes are in the human genome?",
-        answer: "46",
+        answers: ["46"],
         choices: [
             "46",
             "42",
@@ -40,7 +40,7 @@ let questions = [{
     },
     {
         question: "Which of these characters are friends with Harry Potter ? (Ron Weasley, Draco Malfoy, Hermione Granger)",
-        answer: "Ron Weasley",
+        answers: ["Ron Weasley", "Hermione Granger"],
         choices: [
             "Ron Weasley",
             "Draco Malfoy",
@@ -50,7 +50,7 @@ let questions = [{
     },
     {
         question: " What is the capital of Canada? (Toronto, Ottawa, Vancouver)",
-        answer: "Ottawa",
+        answers: ["Ottawa"],
         choices: [
             "Ottawa",
             "Toronto",
@@ -60,7 +60,7 @@ let questions = [{
     },
     {
         question: "What is the Jewish New Year called? ",
-        answer: "Hanukkah",
+        answers: ["Hanukkah"],
         choices: [
             "Hanukkah",
             "Yom Kippur",
