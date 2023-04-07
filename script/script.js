@@ -3,16 +3,28 @@
 const $ = document.querySelector.bind(document);
 const quiz = $(".quiz");
 const btnNext = $(".quiz__next-btn");
-let count = 0;
-let userScore = 0;
-let userAnswersCount = 0;
+const btnRestart = $(".result__restart");
+let userScore;
+let count;
+let userAnswersCount;
+if (localStorage.getItem('index') != 0 && localStorage.getItem('index') < questions.length) {
+    count = localStorage.getItem('index');
+} else count = 0;
+if (localStorage.getItem('score')) {
+    userScore = localStorage.getItem('score');
+} else userScore = 0;
+userAnswersCount = 0;
 if (typeof questions !== 'undefined' && questions.length > 0) {
     quiz.classList.remove('hidden');
+    localStorage.setItem('index', count);
+    localStorage.setItem('score', userScore);
     showQuestion(count);
 }
 btnNext.addEventListener('click', nextQuestion);
+btnRestart.addEventListener('click', restartQuiz);
 
 function showQuestion(index) {
+
     const title = $(".quiz__title");
     const list = $(".quiz__list");
     const progress = $(".quiz__progress");
@@ -29,7 +41,7 @@ function showQuestion(index) {
 
     const choices = list.querySelectorAll(".quiz__choice");
     choices.forEach(item => item.setAttribute("onclick", "handleChoice(this)"));
-    progress.innerHTML = `QUESTION ${index+1} / ${questions.length}`;
+    progress.innerHTML = `QUESTION ${Number(index)+1} / ${questions.length}`;
 
     btnNext.classList.remove('active');
 };
@@ -55,7 +67,8 @@ function handleChoice(answer) {
     if (userAnswersCount == correctAnswers.length) {
         choices.forEach(item => item.classList.add("disabled"));
         userAnswersCount = 0;
-        userScore += 1;
+        userScore++;
+        localStorage.setItem('score', userScore)
         btnNext.classList.add('active');
     }
 }
@@ -64,7 +77,9 @@ function nextQuestion() {
     const choice = $(".quiz__choice");
     const result = $(".result");
     const resultText = $(".result__text");
-    if ((count + 1) == questions.length && choice.classList.contains('disabled')) {
+    count = localStorage.getItem('index')
+    console.log(count);
+    if (count >= questions.length - 1 && choice.classList.contains('disabled')) {
         result.classList.remove('hidden');
         quiz.classList.add('hidden');
         resultText.innerHTML = `RESULT :${userScore} / ${questions.length}`
@@ -72,6 +87,19 @@ function nextQuestion() {
     }
     if (choice.classList.contains('disabled')) {
         count++;
+        localStorage.setItem('index', count);
         showQuestion(count);
     }
+}
+
+function restartQuiz() {
+    const result = $(".result");
+    userScore = 0;
+    userAnswersCount = 0;
+    count = 0;
+    quiz.classList.remove('hidden');
+    result.classList.add('hidden');
+    localStorage.clear();
+    localStorage.setItem('index', count);
+    showQuestion(count);
 }
