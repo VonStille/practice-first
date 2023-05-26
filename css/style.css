@@ -4,6 +4,10 @@ body {
     background: linear-gradient(to bottom right, rgb(7, 129, 153), rgb(62, 35, 234));
 }
 
+body.dark-theme {
+    background: linear-gradient(to bottom right, rgb(44, 47, 68), rgb(0, 0, 0));
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -24,6 +28,8 @@ body {
     padding: 20px 30px 10px;
     font-size: 20px;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
 }
 
 .quiz__content {
