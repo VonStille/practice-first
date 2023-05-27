@@ -16,9 +16,10 @@ if (localStorage.getItem('theme')) {
 }
 
 
-if (localStorage.getItem('index') != 0 && localStorage.getItem('index') < questions.length) {
+if (localStorage.getItem('index') != 0 && localStorage.getItem('index') <= questions.length) {
     count = localStorage.getItem('index');
 } else count = 0;
+
 if (localStorage.getItem('score')) {
     userScore = localStorage.getItem('score');
 } else userScore = 0;
@@ -28,7 +29,14 @@ if (localStorage.getItem('localuserAnswersCount')) {
 if (localStorage.getItem('localUserAnswers')) {
     userAnswerList = localStorage.getItem('localUserAnswers').split(',');
 } else userAnswerList = [];
-if (typeof questions !== 'undefined' && questions.length > 0) {
+if (count == questions.length) {
+    const result = $(".result");
+    const resultText = $(".result__text");
+    result.classList.remove('hidden');
+    quiz.classList.add('hidden');
+    resultText.innerHTML = `RESULT :${userScore} / ${questions.length}`
+}
+if (typeof questions !== 'undefined' && questions.length > 0 && count < questions.length) {
     quiz.classList.remove('hidden');
     localStorage.setItem('index', count);
     localStorage.setItem('score', userScore);
@@ -137,6 +145,8 @@ function nextQuestion() {
     localStorage.removeItem('localUserAnswers')
     count = localStorage.getItem('index')
     if (count >= questions.length - 1 && choice.classList.contains('disabled')) {
+        count++;
+        localStorage.setItem('index', count);
         result.classList.remove('hidden');
         quiz.classList.add('hidden');
         resultText.innerHTML = `RESULT :${userScore} / ${questions.length}`
