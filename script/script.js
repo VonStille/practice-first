@@ -43,6 +43,7 @@ if (typeof questions !== 'undefined' && questions.length > 0 && count < question
     showQuestion(count);
 }
 
+
 btnNext.addEventListener('click', nextQuestion);
 btnRestart.addEventListener('click', restartQuiz);
 themeSwitcher.addEventListener('click', toggleTheme);
@@ -62,8 +63,6 @@ function showQuestion(index) {
         const text = `<li class="quiz__choice">${item}</li>`;
         list.insertAdjacentHTML("beforeend", text)
     })
-
-
 
     const choices = list.querySelectorAll(".quiz__choice");
     choices.forEach(item => item.setAttribute("onclick", "handleChoice(this)"));
@@ -96,6 +95,7 @@ function handleChoice(answer) {
         });
         userAnswersCount = 0;
         choices.forEach(item => item.classList.add("disabled"));
+        onTimesLeft();
         btnNext.classList.add('active');
     }
     if (userAnswersCount == correctAnswers.length) {
@@ -103,6 +103,7 @@ function handleChoice(answer) {
         userAnswersCount = 0;
         userScore++;
         localStorage.setItem('score', userScore)
+        onTimesLeft();
         btnNext.classList.add('active');
     }
 }
@@ -112,7 +113,6 @@ function handlePreviousChoice(answer) {
     const correctAnswers = questions[count].answers;
     userAnswersCount += 1;
     for (let i in choices) {
-
         if (choices[i].textContent == answer) {
             if (correctAnswers.includes(answer)) {
                 choices[i].classList.add("correct");
@@ -130,7 +130,6 @@ function handlePreviousChoice(answer) {
             if (userAnswersCount == correctAnswers.length) {
                 choices.forEach(item => item.classList.add("disabled"));
                 userAnswersCount = 0;
-
                 btnNext.classList.add('active');
             }
         }
@@ -141,8 +140,9 @@ function nextQuestion() {
     const choice = $(".quiz__choice");
     const result = $(".result");
     const resultText = $(".result__text");
-    userAnswerList = []
-    localStorage.removeItem('localUserAnswers')
+    userAnswerList = [];
+    localStorage.removeItem('localUserAnswers');
+
     count = localStorage.getItem('index')
     if (count >= questions.length - 1 && choice.classList.contains('disabled')) {
         count++;
@@ -156,6 +156,10 @@ function nextQuestion() {
         count++;
         localStorage.setItem('index', count);
         showQuestion(count);
+        localStorage.removeItem('time');
+        localStorage.removeItem('width')
+        onTimesLeft();
+        startTimer();
     }
 }
 
@@ -170,6 +174,9 @@ function restartQuiz() {
     localStorage.clear();
     localStorage.setItem('index', count);
     showQuestion(count);
+    localStorage.removeItem('time');
+    onTimesLeft();
+    startTimer();
 }
 
 function toggleTheme() {

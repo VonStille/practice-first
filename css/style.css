@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "timer.css";
 
 :root {
     --font-color: #424242;
@@ -154,9 +155,10 @@ body {
     pointer-events: none;
 }
 
-.quiz__btn {
+.quiz__footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
     padding: 5px 30px 15px;
 }
 

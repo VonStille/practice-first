@@ -10,6 +10,11 @@
     <body class="dark-theme||light-theme">
         <div class="container">
             <main class="main">
+                <div class="menu hidden">
+                    <div class="menu__title">Kringe Quiz</div>
+                    <div class="menu__text">Choose difficulty level</div>
+                    <div class="menu__buttons"></div>
+                </div>
                 <div class="quiz hidden">
                     <div class="quiz__header">
                         <div class="quiz__progress"></div>
@@ -20,8 +25,10 @@
 
                         <ul class="quiz__list"></ul>
                     </div>
-                    <div class="quiz__btn">
+                    <div class="quiz__footer">
+                        <div class="base-timer"></div>
                         <button class="quiz__next-btn">Next</button>
+                        <div class="progressbar"></div>
                     </div>
                 </div>
                 <div class="result hidden">
@@ -37,5 +44,6 @@
         </div>
         <script src="./script/questions.js"></script>
         <script src="./script/script.js"></script>
+        <script src="./script/timer.js"></script>
     </body>
 </html>

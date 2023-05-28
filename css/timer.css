@@ -1,0 +1,23 @@
+.base-timer {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.progressbar {
+    position: relative;
+    height: 5px;
+    background-color: rgb(65, 184, 131);
+}
+
+.progressbar.info {
+    background-color: rgb(65, 184, 131);
+}
+
+.progressbar.warning {
+    background-color: orange;
+}
+
+.progressbar.alert {
+    background-color: red;
+}
