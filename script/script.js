@@ -9,7 +9,7 @@ const lightGameBtn = $(".menu__button.lightGame");
 const middleGameBtn = $(".menu__button.middleGame");
 const hardGameBtn = $(".menu__button.hardGame");
 const btnBackToMenu = $(".result__back-to-menu");
-
+let questions;
 let userScore;
 let count;
 let userAnswersCount;
@@ -25,8 +25,8 @@ if (localStorage.getItem('quizStart')) {
     quizStart = true;
 } else quizStart = false;
 
-if (localStorage.getItem("difficultyLevel")) {
-    difficultyLevel = localStorage.getItem("difficultyLevel");
+if (localStorage.getItem('difficultyLevel')) {
+    difficultyLevel = localStorage.getItem('difficultyLevel');
 }
 
 if (quizStart == false) {
@@ -38,21 +38,32 @@ if (quizStart == false) {
 
 function lightDifficulty() {
     const light = 0;
+    localStorage.setItem('difficultyLevel', light)
     startQuiz(light);
 }
 
 function middleDifficulty() {
     const middle = 1;
+    localStorage.setItem('difficultyLevel', middle)
     startQuiz(middle);
 }
 
 function hardDifficulty() {
     const hard = 2;
+    localStorage.setItem('difficultyLevel', hard)
     startQuiz(hard);
 }
 
 function startQuiz(level) {
-    localStorage.setItem('difficultyLevel', level);
+    if (level == 0) {
+        questions = questions1;
+    }
+    if (level == 1) {
+        questions = questions2;
+    }
+    if (level == 2) {
+        questions = questions3;
+    }
     quizStart = true;
     menu.classList.add("hidden");
     localStorage.setItem('quizStart', quizStart);
@@ -222,12 +233,14 @@ function nextQuestion() {
 function restartQuiz() {
     const result = $(".result");
 
+    const level = localStorage.getItem('difficultyLevel');
     count = 0;
     quiz.classList.remove('hidden');
     result.classList.add('hidden');
     localStorage.clear();
     localStorage.setItem('quizStart', 1)
     localStorage.setItem('index', count);
+    localStorage.setItem('difficultyLevel', level);
     showQuestion(count);
     onTimesLeft();
     startTimer();
