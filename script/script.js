@@ -238,6 +238,7 @@ function restartQuiz() {
 
     const level = localStorage.getItem('difficultyLevel');
     count = 0;
+    userScore = 0;
     quiz.classList.remove('hidden');
     result.classList.add('hidden');
     localStorage.clear();
