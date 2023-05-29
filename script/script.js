@@ -68,7 +68,7 @@ function startQuiz(level) {
     menu.classList.add("hidden");
     localStorage.setItem('quizStart', quizStart);
 
-    if (localStorage.getItem('index') != 0 && localStorage.getItem('index') <= questions.length) {
+    if (localStorage.getItem('index') != 0 && localStorage.getItem('index') <= questions.length && localStorage.getItem('index') != null) {
         count = localStorage.getItem('index');
     } else count = 0;
 
