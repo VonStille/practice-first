@@ -1,7 +1,22 @@
-.base-timer {
+.timer__base {
     position: relative;
     width: 60px;
+    font-size: 50px;
     height: 60px;
+    color: rgb(65, 184, 131);
+    text-shadow: 1px 1px black;
+}
+
+.time__remaining-text {
+    font-size: 25px;
+}
+
+.timer_base.warning {
+    color: orange;
+}
+
+.timer_base.alert {
+    color: red;
 }
 
 .progressbar {
@@ -10,9 +25,9 @@
     background-color: rgb(65, 184, 131);
 }
 
-.progressbar.info {
+/* .progressbar.info {
     background-color: rgb(65, 184, 131);
-}
+} */
 
 .progressbar.warning {
     background-color: orange;

@@ -10,40 +10,64 @@
     <body class="dark-theme||light-theme">
         <div class="container">
             <main class="main">
-                <div class="menu hidden">
-                    <div class="menu__title">Kringe Quiz</div>
-                    <div class="menu__text">Choose difficulty level</div>
-                    <div class="menu__buttons"></div>
-                </div>
-                <div class="quiz hidden">
-                    <div class="quiz__header">
-                        <div class="quiz__progress"></div>
+                <div class="quiz">
+                    <div class="header">
+                        <div class="menu__header-text">Quiz</div>
                         <button class="toggle-theme-button"></button>
                     </div>
-                    <div class="quiz__content">
-                        <h3 class="quiz__title"></h3>
+                    <div class="menu hidden">
+                        <div class="menu__title">Choose difficulty level:</div>
+                        <div class="menu__buttons">
+                            <button class="menu__button lightGame active">
+                                LIGHT GAME
+                            </button>
+                            <button class="menu__button middleGame active">
+                                MIDDLE GAME
+                            </button>
+                            <button class="menu__button hardGame active">
+                                HARD GAME
+                            </button>
+                        </div>
+                    </div>
+                    <div class="quiz__window hidden">
+                        <div class="quiz__header">
+                            <div class="quiz__progress"></div>
+                        </div>
+                        <div class="quiz__content">
+                            <h3 class="quiz__title"></h3>
 
-                        <ul class="quiz__list"></ul>
+                            <ul class="quiz__list"></ul>
+                        </div>
+                        <div class="quiz__footer">
+                            <div class="timer">
+                                <div class="time__remaining-text">
+                                    REMAINING TIME:
+                                </div>
+                                <div class="timer__base"></div>
+                            </div>
+                            <button class="quiz__next-btn">Next</button>
+                            <div class="progressbar"></div>
+                        </div>
                     </div>
-                    <div class="quiz__footer">
-                        <div class="base-timer"></div>
-                        <button class="quiz__next-btn">Next</button>
-                        <div class="progressbar"></div>
-                    </div>
-                </div>
-                <div class="result hidden">
-                    <div class="result__title">
-                        The test is fully completed!
-                    </div>
-                    <div class="result__text"></div>
-                    <div class="result__btn">
-                        <button class="result__restart">Restart</button>
+                    <div class="result hidden">
+                        <div class="result__title">
+                            The test is fully completed!
+                        </div>
+                        <div class="result__text"></div>
+                        <div class="result__btn">
+                            <button class="result__restart">Restart</button>
+                        </div>
+                        <div class="result__footer">
+                            <button class="result__back-to-menu">
+                                Back to Menu
+                            </button>
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
         <script src="./script/questions.js"></script>
-        <script src="./script/script.js"></script>
         <script src="./script/timer.js"></script>
+        <script src="./script/script.js"></script>
     </body>
 </html>

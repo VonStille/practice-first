@@ -75,6 +75,63 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    flex-direction: column;
+}
+
+.header {
+    padding: 20px 30px 10px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.menu {
+    display: flex;
+    padding: 30px 30px 60px 30px;
+    flex-direction: column;
+    max-width: 450px;
+    min-height: 450px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--quiz-bg-color);
+    color: var(--font-color);
+    gap: 30px;
+    justify-content: center;
+}
+
+.menu__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu__button {
+    min-width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 5px;
+    color: var(--quiz-button-font-color);
+    background: var(--quiz-button-bg-color);
+    border: 1px solid var(--quiz-button-border-color);
+}
+
+.menu__button.active {
+    color: var(--quiz-button-font-color-active);
+    background: var(--quiz-button-bg-color-active);
+    border: 1px solid var(--quiz-button-border-color-active);
+}
+
+.menu__header-text {
+    font-size: 25px;
+    font-weight: 650;
+}
+
+.menu__title {
+    font-size: 25px;
+    font-weight: 650;
 }
 
 .quiz {
@@ -105,7 +162,7 @@ body {
 
 
 .quiz__content {
-    padding: 30px 30px 10px;
+    padding: 30px 30px 0px;
 }
 
 .quiz__title {
@@ -179,14 +236,22 @@ body {
     border: 1px solid var(--quiz-button-border-color-active);
 }
 
+.timer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px 10px 0px;
+    align-items: center;
+}
+
 .result {
     max-width: 450px;
     min-height: 450px;
     width: 100%;
     background-color: var(--quiz-bg-color);
     border-radius: 10px;
-    padding: 20px 10px;
+    padding: 30px 30px 60px 30px;
     display: flex;
+    gap: 10px;
     justify-content: center;
     flex-direction: column;
     color: var(--font-color)
@@ -208,13 +273,27 @@ body {
 .result__btn {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+}
+
+.result__footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .result__restart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 45px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid var(--quiz-button-border-color-active);
+    color: var(--quiz-button-font-color-active);
+    background: var(--quiz-button-bg-color-active);
+}
+
+.result__back-to-menu {
     height: 45px;
     padding: 10px;
     font-size: 18px;

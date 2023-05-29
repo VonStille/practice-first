@@ -1,32 +1,29 @@
+const $ = document.querySelector.bind(document);
 const TIME_LIMIT = 20;
 const LINE_WIDTH = 100;
 const WARNING_TIME = 10;
 const ALERT_TIME = 5;
+const timer = $(".timer__base")
+const progressbar = $(".progressbar")
 let timeLeft;
-// let width;
-let timePassed;
-progressbar = $(".progressbar")
+let timePassed = 0;
 let timerInterval = null;
-if (localStorage.getItem('time')) {
-    timePassed = Number(localStorage.getItem('time'));
-} else timePassed = 0;
-if (localStorage.getItem('width')) {
-    width = localStorage.getItem('width');
-} else width = 100;
+let width;
 
-
-// let remainingPathColor = COLOR_CODES.info.color;
-progressbar.style.width = width + "%";
-timer = $(".base-timer")
-timer.innerHTML = ` <span id="base-timer-label" class="base-timer__label">${formatTime(TIME_LIMIT-timePassed)}</span>`
-
-
-
-
-
-startTimer();
-if (btnNext.classList.contains('active')) {
-    onTimesLeft();
+function timerOnStartUpdate() {
+    if (localStorage.getItem('time')) {
+        timePassed = Number(localStorage.getItem('time'));
+    } else timePassed = 0;
+    if (localStorage.getItem('width')) {
+        width = localStorage.getItem('width');
+    } else width = 100;
+    setRemainingPathColor(TIME_LIMIT - timePassed)
+    progressbar.style.width = width + "%";
+    timer.innerHTML = ` <span id="timer__base-label" class="timer__base__label">${TIME_LIMIT-timePassed}</span>`
+    startTimer();
+    if (btnNext.classList.contains('active')) {
+        onTimesLeft();
+    }
 }
 
 function onTimesUp() {
@@ -60,15 +57,15 @@ function startTimer() {
     if (localStorage.getItem('width')) {
         width = localStorage.getItem('width');
     } else width = 100;
+
     progressbar.style.width = width + "%";
-    setRemainingPathColor(timeLeft);
     if (localStorage.getItem('time')) {
         timePassed = Number(localStorage.getItem('time'));
     } else timePassed = 0;
-    timer = $(".base-timer")
-    timer.innerHTML = ` <span id="base-timer-label" class="base-timer__label">${formatTime(TIME_LIMIT-timePassed)}</span>`
-    timerInterval = setInterval(() => {
 
+    setRemainingPathColor(TIME_LIMIT - timePassed);
+    timer.innerHTML = ` <span id="timer__base-label" class="timer__base__label">${TIME_LIMIT-timePassed}</span>`
+    timerInterval = setInterval(() => {
         timePassed += 1;
         timeLeft = TIME_LIMIT - timePassed;
         if (timeLeft < 0) {
@@ -76,26 +73,14 @@ function startTimer() {
             timeLeft += 1;
         }
         localStorage.setItem('time', timePassed)
-        document.getElementById("base-timer-label").innerHTML = formatTime(
-            timeLeft
-        );
-        moveProgressBar();
+        document.getElementById("timer__base-label").innerHTML =
+            timeLeft;
         setRemainingPathColor(timeLeft);
+        moveProgressBar();
         if (timeLeft <= 0) {
             onTimesUp();
         }
     }, 1000);
-}
-
-function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    if (seconds < 10) {
-        seconds = `0${seconds}`;
-    }
-
-    return `${minutes}:${seconds}`;
 }
 
 function setRemainingPathColor(timeLeft) {
@@ -105,5 +90,8 @@ function setRemainingPathColor(timeLeft) {
     } else if (timeLeft <= WARNING_TIME) {
         progressbar.classList.remove('info');
         progressbar.classList.add('warning');
+    } else {
+        progressbar.classList.remove('warning');
+        progressbar.classList.remove('alert');
     }
 }
