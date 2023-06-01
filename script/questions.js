@@ -139,7 +139,7 @@ let questions2 = [{
 
 
 let questions3 = [{
-        question: "Сhoose the winners of the golden ball, the highest individual award in football:",
+        question: "Which of these players are the winners of the golden ball?",
         answers: ["Lionel Messi", "Ronaldinho", "Luis Suárez", "Hristo Stoichkov"],
         choices: [
             "Lionel Messi",
@@ -150,7 +150,7 @@ let questions3 = [{
         ]
     },
     {
-        question: "Choose JS array methods:",
+        question: "Which methods are JavaScript Array methods?",
         answers: ["push", "shift"],
         choices: [
             "add",
@@ -161,7 +161,7 @@ let questions3 = [{
         ]
     },
     {
-        question: "select cities located in South America",
+        question: "Which of these cities are located on the continent of South Aamerica?",
         answers: ["Sao Paulo", "Lima"],
         choices: [
             "Sao Paulo",
@@ -172,7 +172,7 @@ let questions3 = [{
         ]
     },
     {
-        question: "Choose JS String methods:",
+        question: "Which methods are JavaScript string methods?",
         answers: ["at", "charAt", "indexOf"],
         choices: [
             "charAt",
@@ -183,7 +183,7 @@ let questions3 = [{
         ]
     },
     {
-        question: "Which of these characters are friends with Harry Potter ? ",
+        question: "Which of these characters are friends with Harry Potter?",
         answers: ["Ron Weasley", "Hermione Granger"],
         choices: [
             "Ron Weasley",
@@ -194,7 +194,7 @@ let questions3 = [{
         ]
     },
     {
-        question: "Choose JS String methods:",
+        question: "Which methods are JavaScript string methods?",
         answers: ["toUpperCase", "repeat"],
         choices: [
             "toUpperCase",
@@ -205,7 +205,7 @@ let questions3 = [{
         ]
     },
     {
-        question: "Select the months in which they celebrate the new year in different countries:",
+        question: "Which months celebrate the New Year (or its analogue) in different countries?",
         answers: ["April", "March"],
         choices: [
             "April",

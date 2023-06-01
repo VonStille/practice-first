@@ -34,6 +34,7 @@ if (quizStart == false) {
     lightGameBtn.addEventListener('click', lightDifficulty);
     middleGameBtn.addEventListener('click', middleDifficulty);
     hardGameBtn.addEventListener('click', hardDifficulty);
+    themeSwitcher.addEventListener('click', toggleTheme);
 } else startQuiz(difficultyLevel);
 
 function lightDifficulty() {
@@ -218,7 +219,7 @@ function nextQuestion() {
         localStorage.setItem('index', count);
         result.classList.remove('hidden');
         quiz.classList.add('hidden');
-        resultText.innerHTML = `RESULT :${userScore} / ${questions.length}`
+        resultText.innerHTML = `RESULT : ${userScore} / ${questions.length}`
         return;
     }
 

@@ -5,6 +5,7 @@ const WARNING_TIME = 10;
 const ALERT_TIME = 5;
 const timer = $(".timer__base")
 const progressbar = $(".progressbar")
+
 let timeLeft;
 let timePassed = 0;
 let timerInterval = null;
@@ -87,11 +88,15 @@ function setRemainingPathColor(timeLeft) {
     if (timeLeft <= ALERT_TIME) {
         progressbar.classList.remove('warning');
         progressbar.classList.add('alert');
+        timer.classList.remove('warning')
+        timer.classList.add('alert')
     } else if (timeLeft <= WARNING_TIME) {
-        progressbar.classList.remove('info');
         progressbar.classList.add('warning');
+        timer.classList.add('warning')
     } else {
         progressbar.classList.remove('warning');
         progressbar.classList.remove('alert');
+        timer.classList.remove('warning')
+        timer.classList.remove('warning')
     }
 }

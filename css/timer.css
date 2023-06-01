@@ -11,11 +11,11 @@
     font-size: 25px;
 }
 
-.timer_base.warning {
+.timer__base.warning {
     color: orange;
 }
 
-.timer_base.alert {
+.timer__base.alert {
     color: red;
 }
 
@@ -25,9 +25,6 @@
     background-color: rgb(65, 184, 131);
 }
 
-/* .progressbar.info {
-    background-color: rgb(65, 184, 131);
-} */
 
 .progressbar.warning {
     background-color: orange;
