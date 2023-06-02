@@ -97,6 +97,6 @@ function setRemainingPathColor(timeLeft) {
         progressbar.classList.remove('warning');
         progressbar.classList.remove('alert');
         timer.classList.remove('warning')
-        timer.classList.remove('warning')
+        timer.classList.remove('alert')
     }
 }
